@@ -154,7 +154,7 @@
 	</logger>
 
 	<!--配置sql输出在控制台-->
-	<logger name="com.autotest.LiuMa.database.mapper" level="DEBUG">
+	<logger name="com.autotest.LiuMa.database.mapper" level="INFO">
 		<appender-ref ref="console"/>
 	</logger>
 
