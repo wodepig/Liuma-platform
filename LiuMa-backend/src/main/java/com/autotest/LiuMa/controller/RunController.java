@@ -22,4 +22,14 @@ public class RunController {
         runRequest.setRunUser(user);
         return runService.run(runRequest);
     }
+    /**
+     * 不用权限就能创建任务
+     * @param runRequest
+     * @param request
+     * @return
+     */
+    @GetMapping("/noauth/autotest/run")
+    public Task noauthRun(@RequestBody RunRequest runRequest, HttpServletRequest request) {
+        return runService.run(runRequest);
+    }
 }

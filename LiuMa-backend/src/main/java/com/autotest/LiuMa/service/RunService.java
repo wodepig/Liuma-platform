@@ -34,6 +34,9 @@ public class RunService {
     private DebugDataMapper debugDataMapper;
 
     public Task run(RunRequest runRequest) {
+        if (runRequest.getRunUser()==null){
+            return null;
+        }
         String runName = runRequest.getSourceName() +"-"+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         // 调试执行则存储临时数据
         if(runRequest.getSourceType().equals(ReportSourceType.TEMP.toString())){
