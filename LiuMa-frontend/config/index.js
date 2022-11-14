@@ -11,10 +11,10 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/autotest': {
-                target: 'http://127.0.0.1:8080', // 你请求的第三方接口
-                changeOrigin: true, 
+                target: 'http://127.0.0.1:9877', // 你请求的第三方接口
+                changeOrigin: true,
                 pathRewrite: { // 路径重写，
-                    '^/autotest': '/autotest' 
+                    '^/autotest': '/autotest'
                 }
             }
         },
