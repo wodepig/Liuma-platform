@@ -6,6 +6,7 @@ import com.autotest.LiuMa.database.mapper.*;
 import com.autotest.LiuMa.dto.UserDTO;
 import com.autotest.LiuMa.request.PasswordRequest;
 import com.autotest.LiuMa.request.RegisterRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
@@ -15,7 +16,8 @@ import java.util.UUID;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserService {
-
+    @Value("${myliuma.openregister}")
+    private Boolean openRegister;
     @Resource
     private UserMapper userMapper;
 
@@ -73,6 +75,9 @@ public class UserService {
     }
 
     public String registerUser(RegisterRequest request){
+        if(!openRegister){
+            return "注册已被关闭";
+        }
         User oldAccountUser = userMapper.getUser(request.getAccount());
         if(oldAccountUser != null){
             return "该登录账号已被注册!";
