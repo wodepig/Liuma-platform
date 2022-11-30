@@ -13,7 +13,7 @@ public class Constant {
     /**
      * 不用登录就能创建任务
      */
-    public static final String NO_AUTH_PATH = "^/noauth/.+$";
+    public static final String NO_AUTH_PATH = "^/autotest/noauth/.+$";
     /**
      * 错误请求也需要放行
      */

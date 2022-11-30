@@ -28,7 +28,7 @@ public class RunController {
      * @param request
      * @return
      */
-    @GetMapping("/noauth/autotest/run")
+    @GetMapping("/autotest/noauth/run")
     public Task noauthRun(@RequestBody RunRequest runRequest, HttpServletRequest request) {
         return runService.run(runRequest);
     }

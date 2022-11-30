@@ -35,7 +35,9 @@ public class RunService {
 
     public Task run(RunRequest runRequest) {
         if (runRequest.getRunUser()==null){
-            return null;
+            Task task = new Task();
+            task.setName("请指定runUser");
+            return task;
         }
         String runName = runRequest.getSourceName() +"-"+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         // 调试执行则存储临时数据
